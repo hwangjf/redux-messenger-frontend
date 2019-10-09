@@ -106,5 +106,5 @@ const mapStateToProps = state => {
     users: state.users
   }
 }
-
+export { App };
 export default withRouter(connect(mapStateToProps, { autoLogin, getUsers })(App))

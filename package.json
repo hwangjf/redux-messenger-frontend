@@ -22,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compile:sass": "node-sass src/sass/main.scss src/components/App.css -w"
+    "compile:sass": "node-sass src/sass/main.scss src/components/App.css -w",
+    "deploy": "npm run-script build && aws s3 cp build/ s3://reduxmessenger.com --recursive"
   },
   "eslintConfig": {
     "extends": "react-app"
