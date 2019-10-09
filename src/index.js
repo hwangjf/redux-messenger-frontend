@@ -10,8 +10,10 @@ import configureStore from './store'
 
 const store = configureStore()
 
+const WS = process.env.NODE_ENV === 'production' ? `ws://${process.env.REACT_APP_API_BASE_URL}/cable` : 'ws://localhost:4000/cable'
+
 ReactDOM.render(
-  <ActionCableProvider url={'ws://localhost:4000/cable'}>
+  <ActionCableProvider url={WS}>
     <Provider store={store} >
       <Router>
         <App />
