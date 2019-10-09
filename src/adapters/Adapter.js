@@ -10,7 +10,6 @@ class Adapter {
   static setToken = (token) => localStorage.setItem('token', token)
 
   static setLocation = () => {
-    debugger
     localStorage.setItem('location')
   }
 }

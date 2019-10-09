@@ -1,6 +1,6 @@
 import Adapter from "./Adapter"
 
-const BASE_URL = 'http://localhost:4000/api/v1'
+const BASE_URL = process.env.NODE_ENV === 'production' ? `${process.env.REACT_APP_API_URL}/api/v1` : 'http://localhost:4000/api/v1'
 
 class ApiAdapter {
   constructor() {
