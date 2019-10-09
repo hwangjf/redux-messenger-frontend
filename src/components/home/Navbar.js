@@ -31,7 +31,7 @@ class Navbar extends React.Component {
       <div className="navbar">
         <NavLink className="navbar__logo" to="/"></NavLink>
         {
-          this.props.isLoggedIn
+          this.props.loggedIn
             ? <div>LOGOUT</div>
             : <div className="login">
                 <form className="login__form" onSubmit={this.handleSubmit} >
