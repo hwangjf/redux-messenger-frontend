@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { login } from '../../actions/user'
+import { login } from '../../actions/users'
 
 import { withRouter } from 'react-router'
 
@@ -15,11 +15,12 @@ class Login extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.login(this.state)
+      .then(()=>this.props.history.push('/conversations'))
+
     this.setState({
       username: '',
       password: ''
     })
-    this.props.history.push('/conversations')
   }
 
   render(props) {

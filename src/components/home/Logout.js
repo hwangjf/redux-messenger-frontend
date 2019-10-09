@@ -11,10 +11,10 @@ class Logout extends React.Component {
     return (
       <>
       <div className="logout">
-        <NavLink classname="logout__link" to="/profile">Profile</NavLink>
-        <NavLink classname="logout__link" to="/conversations">Conversations</NavLink>
-        <NavLink classname="logout__link" to="/friends">Friends</NavLink>
-        <button className="logout__btn btn">LOGOUT</button>
+        <NavLink className="logout__link" to="/profile">Profile</NavLink>
+        <NavLink className="logout__link" to="/conversations">Conversations</NavLink>
+        <NavLink className="logout__link" to="/friends">Friends</NavLink>
+        <button className="logout__btn btn" onClick={()=>this.props.logout()}>LOGOUT</button>
       </div>
       </>
     )

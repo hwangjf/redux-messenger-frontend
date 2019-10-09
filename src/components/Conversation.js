@@ -15,6 +15,7 @@ class Conversation extends Component {
   }
 
   componentDidMount() {
+    console.log('hi')
     this.props.getConversations()
   }
 

@@ -105,6 +105,11 @@ render() {
         showPassword={this.state.showPassword}
       />
 
+      <Route
+        path="/conversations"
+        component={Conversation}
+      />
+
       <div className="home__body">
         <div className="home__body__left">
           <Route
@@ -136,10 +141,6 @@ render() {
         path="/messages"
         render={props => <Messages><Conversation /></Messages>}
       />
-      <Route
-        path="/conversations"
-        component={Conversation}
-      />
     </div>
     </>
   );
@@ -154,5 +155,5 @@ const mapStateToProps = state => {
     users: state.users
   }
 }
-export { App };
+
 export default withRouter(connect(mapStateToProps, { autoLogin, getUsers })(App))

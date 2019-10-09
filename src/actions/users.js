@@ -15,7 +15,7 @@ export const getUsers = () => dispatch => {
 
 export const login = (userInfo) => dispatch => {
   dispatch(loginRequest)
-  UsersAdapter.login(userInfo)
+  return UsersAdapter.login(userInfo)
     .then(data => {
       dispatch(loginSuccess(data))
     })

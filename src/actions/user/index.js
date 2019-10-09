@@ -22,26 +22,28 @@ const addFriend = (friendId) => dispatch => {
 const login = (userInfo) => dispatch => {
   dispatch(loginRequest)
 
-  UsersAdapter.login(userInfo)
+  return UsersAdapter.login(userInfo)
     .then(({ user, token }) => {
       Adapter.setToken(token)
 
       dispatch(loginSuccess(user))
     })
-    .catch(err => {
-      err.json()
-        .then(console.log)
+    // .catch(err => {
+    //   err.json()
+    //     .then(console.log)
 
-      dispatch(loginFailure(err))
-    })
+    //   dispatch(loginFailure(err))
+    // })
 }
 
 const autoLogin = () => dispatch => {
+  debugger
   dispatch(loginRequest)
-
-  UsersAdapter.autoLogin()
-    .then(({ user }) => {
-      dispatch(loginSuccess(user))
+  debugger
+  return UsersAdapter.autoLogin()
+    .then(data => {
+      debugger
+      // dispatch(loginSuccess(user))
     })
     .catch(err => {
       err.json()
