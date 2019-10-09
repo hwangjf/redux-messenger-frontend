@@ -2,13 +2,14 @@
 $color-black: black;
 $color-white: white;
 $color-gold: #DAA520;
-$color-primary: #505BBB;
+$color-primary:  rgba(13, 15, 128, 1);
+$color-secondary: rgba(106, 207, 182, 1);
 
 // box shadows //
-$boxshadow: 0px 5px 15px -5px rgba($color-black, 0.75);
-$navbar-boxshadow: 0 8px 0.5rem -0.5rem rgba($color-black, 0.2);
-$button-boxshadow-hover: 0 .5rem 1rem rgba($color-black, 0.6);
-$button-boxshadow-active: 0 .25rem .5rem rgba($color-black, 0.6);
+// $boxshadow: 0px 5px 15px -5px rgba($color-black, 0.75);
+// $navbar-boxshadow: 0 8px 0.5rem -0.5rem rgba($color-black, 0.2);
+// $button-boxshadow-hover: 0 .5rem 1rem rgba($color-black, 0.6);
+// $button-boxshadow-active: 0 .25rem .5rem rgba($color-black, 0.6);
 
 // border //
-$border: 1px solid black;
+// $border: 1px solid black;
