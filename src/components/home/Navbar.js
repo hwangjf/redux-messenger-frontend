@@ -2,6 +2,8 @@ import React from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout, login } from '../../actions/users'
+import Login from './Login';
+import Logout from './Logout';
 
 class Navbar extends React.Component {
   state = {
@@ -13,11 +15,7 @@ class Navbar extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    debugger
-
-    // this.props.handleClickClose('close')
     this.props.login(this.state)
-
     this.setState({
       username: '',
       password: ''
@@ -26,21 +24,10 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="navbar">
-        <NavLink className="navbar__logo" to="/"></NavLink>
-        {
-          this.props.isLoggedIn
-            ? <div>LOGOUT</div>
-            : <div className="login">
-                <form className="login__form" onSubmit={this.handleSubmit} >
-                  <input className="login__form__input input" placeholder="username" name="username" value={this.state.username} onChange={this.handleChange} ></input>
-                  <input className="login__form__input input" placeholder="password" name="password" value={this.state.password} onChange={this.handleChange} ></input>
-                  <button className="login__form__btn">Login</button>
-                </form>
-              </div>
-        }
+        <NavLink className="navbar__logo" to="/">ChatApp</NavLink>
+        {this.props.loggedIn ? <Logout /> : <Login handleClickPassword={this.props.handleClickPassword} showPassword={this.props.showPassword}/>}
       </div>
     )
   }

@@ -3,7 +3,10 @@
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
   box-sizing: border-box;
   font-size: 14px;
+}
+
+html {
+  font-family: 'Quicksand', sans-serif;
 }

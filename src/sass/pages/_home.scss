@@ -1,0 +1,13 @@
+.home {
+  border: 1px black solid;
+  &__body {
+    border: 1px blue solid;
+    display: flex;
+    &__left {
+      border: 1px red solid;
+    }
+    &__right {
+      border: 1px pink solid;
+    }
+  }
+}

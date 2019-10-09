@@ -14,8 +14,6 @@ class Login extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-
-    this.props.handleClickClose('close')
     this.props.login(this.state)
     this.setState({
       username: '',
@@ -27,35 +25,11 @@ class Login extends React.Component {
   render(props) {
     return (
       <div className="login">
-        <form className="login__form" onSubmit={this.handleSubmit}>
-          <input
-            className="input login__input"
-            type="text"
-            placeholder="Username"
-            required
-            name="username"
-            onChange={this.handleChange}
-            value={this.state.username}
-          />
-          <input
-            className="input login__input login__input__password"
-            type={this.props.showPassword ? "text" : "password" }
-            placeholder="Password"
-            required
-            name="password"
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-          <img
-          className="login__image--aria-eye"
-          src={this.props.showPassword
-            ? "images/aria-eye-show.png"
-            : "images/aria-eye-hide.png"
-          }
-          alt="aria-eye"
-          onClick={()=>{this.props.handleClickPassword()}}
-          />
-        <button className="btn btn__medium">Login</button>
+        <form className="login__form" onSubmit={this.handleSubmit} >
+          <input className="login__form__input input" type="text" placeholder="Username" name="username" required value={this.state.username} onChange={this.handleChange} ></input>
+          <input className="login__form__input input" type={this.props.showPassword ? "text" : "password"} placeholder="Password" name="password" required value={this.state.password} onChange={this.handleChange} ></input>
+          <img className="login__form__eye" src={this.props.showPassword ? "images/show.png" : "images/hide.png"} alt="Eye" onClick={()=>{this.props.handleClickPassword()}} />
+          <button className="login__form__btn btn">LOGIN</button>
         </form>
       </div>
     )
@@ -63,7 +37,6 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return state
 }
 
