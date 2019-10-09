@@ -94,57 +94,57 @@ class App extends Component {
 //   }
 // }
 
-render() {
-  return (
-    <>
-    <div className="home">
-      <Navbar
-        handleClickLogin={this.handleClickLogin}
-        loggedIn={this.props.loggedIn}
-        handleClickPassword={this.handleClickPassword}
-        showPassword={this.state.showPassword}
-      />
+  render() {
+    return (
+      <>
+      <div className="home">
+        <Navbar
+          handleClickLogin={this.handleClickLogin}
+          loggedIn={this.props.loggedIn}
+          handleClickPassword={this.handleClickPassword}
+          showPassword={this.state.showPassword}
+        />
 
-      <Route
-        path="/conversations"
-        component={Conversation}
-      />
+        <Route
+          path="/conversations"
+          component={Conversation}
+        />
 
-      <div className="home__body">
-        <div className="home__body__left">
-          <Route
-            render={routerProps => (
-              <Signup {...routerProps} />
-            )}
-            />
+        <div className="home__body">
+          <div className="home__body__left">
+            <Route
+              render={routerProps => (
+                <Signup {...routerProps} />
+              )}
+              />
+          </div>
+          <div className="home__body__right">
+            <div>Start Chatting Today!</div>
+          </div>
         </div>
-        <div className="home__body__right">
-          <div>Start Chatting Today!</div>
-        </div>
+
+        <Route
+          path="/profile/:username"
+          render={routerProps => {
+            const userId = this.props.users.length > 0 ? this.props.users.find(user => user.username === routerProps.match.params.username).id : null
+            return (
+              <Profile
+                userId={userId}
+                user={this.props.user}
+                users={this.props.users}
+                // friend={this.props.user && this.props.user.friends.map(u => u.id).includes(user.id)}
+                {...routerProps}
+              />
+            )}}
+        />
+        <Route
+          path="/messages"
+          render={props => <Messages><Conversation /></Messages>}
+        />
       </div>
-
-      <Route
-        path="/profile/:username"
-        render={routerProps => {
-          const userId = this.props.users.length > 0 ? this.props.users.find(user => user.username === routerProps.match.params.username).id : null
-          return (
-            <Profile
-              userId={userId}
-              user={this.props.user}
-              users={this.props.users}
-              // friend={this.props.user && this.props.user.friends.map(u => u.id).includes(user.id)}
-              {...routerProps}
-            />
-          )}}
-      />
-      <Route
-        path="/messages"
-        render={props => <Messages><Conversation /></Messages>}
-      />
-    </div>
-    </>
-  );
-}
+      </>
+    );
+  }
 }
 
 const mapStateToProps = state => {

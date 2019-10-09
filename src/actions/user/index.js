@@ -1,77 +1,79 @@
-import { Adapter, UsersAdapter } from '../../adapters';
+// MOVED TO users.js
 
-import {
-  newFriend,
-  loginSuccess,
-  loginRequest,
-  loginFailure,
-  signupSuccess,
-  signupRequest,
-  signupFailure,
-  logout
-} from './userActions'
+// import { Adapter, UsersAdapter } from '../../adapters';
 
-const addFriend = (friendId) => dispatch => {
-  UsersAdapter.addFriend(friendId)
-    .then(data => {
+// import {
+//   newFriend,
+//   loginSuccess,
+//   loginRequest,
+//   loginFailure,
+//   signupSuccess,
+//   signupRequest,
+//   signupFailure,
+//   logout
+// } from './userActions'
 
-      dispatch(newFriend(data))
-    })
-}
+// const addFriend = (friendId) => dispatch => {
+//   UsersAdapter.addFriend(friendId)
+//     .then(data => {
 
-const login = (userInfo) => dispatch => {
-  dispatch(loginRequest)
+//       dispatch(newFriend(data))
+//     })
+// }
 
-  return UsersAdapter.login(userInfo)
-    .then(({ user, token }) => {
-      Adapter.setToken(token)
+// const login = (userInfo) => dispatch => {
+//   dispatch(loginRequest)
 
-      dispatch(loginSuccess(user))
-    })
-    // .catch(err => {
-    //   err.json()
-    //     .then(console.log)
+//   return UsersAdapter.login(userInfo)
+//     .then(({ user, token }) => {
+//       Adapter.setToken(token)
 
-    //   dispatch(loginFailure(err))
-    // })
-}
+//       dispatch(loginSuccess(user))
+//     })
+//     // .catch(err => {
+//     //   err.json()
+//     //     .then(console.log)
 
-const autoLogin = () => dispatch => {
-  debugger
-  dispatch(loginRequest)
-  debugger
-  return UsersAdapter.autoLogin()
-    .then(data => {
-      debugger
-      // dispatch(loginSuccess(user))
-    })
-    .catch(err => {
-      err.json()
-        .then(console.log)
+//     //   dispatch(loginFailure(err))
+//     // })
+// }
 
-      dispatch(loginFailure(err))
-    })
-}
+// const autoLogin = () => dispatch => {
+//   debugger
+//   dispatch(loginRequest)
+//   debugger
+//   return UsersAdapter.autoLogin()
+//     .then(data => {
+//       debugger
+//       // dispatch(loginSuccess(user))
+//     })
+//     .catch(err => {
+//       err.json()
+//         .then(console.log)
 
-const signup = (userInfo) => dispatch => {
-  dispatch(signupRequest)
+//       dispatch(loginFailure(err))
+//     })
+// }
 
-  UsersAdapter.signup(userInfo)
-    .then(data => {
-      dispatch(signupSuccess(data.user))
-    })
-    .catch(err => {
-      err.json()
-        .then(console.log)
+// const signup = (userInfo) => dispatch => {
+//   dispatch(signupRequest)
 
-      dispatch(signupFailure(err))
-    })
-}
+//   UsersAdapter.signup(userInfo)
+//     .then(data => {
+//       dispatch(signupSuccess(data.user))
+//     })
+//     .catch(err => {
+//       err.json()
+//         .then(console.log)
 
-export {
-  login,
-  autoLogin,
-  signup,
-  logout,
-  addFriend
-}
+//       dispatch(signupFailure(err))
+//     })
+// }
+
+// export {
+//   login,
+//   autoLogin,
+//   signup,
+//   logout,
+//   addFriend
+// }

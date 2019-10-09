@@ -20,8 +20,8 @@ export const login = (userInfo) => dispatch => {
       dispatch(loginSuccess(data))
     })
     .catch(err => {
-      // err.json().then(arg => console.log(arg) )
-      // dispatch(loginFailure(err))
+      err.json().then(arg => console.log(arg) )
+      dispatch(loginFailure(err))
     })
 }
 
