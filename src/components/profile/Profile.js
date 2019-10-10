@@ -18,7 +18,7 @@ class Profile extends React.Component {
     console.log(this.state)
     const user = this.props.users.find(user => user.id === this.props.userId)
     return (
-      <>
+      <div>
         <div className="profile-background">
           <div className="stripe__1"></div>
           <div className="stripe__2"></div>
@@ -86,7 +86,7 @@ class Profile extends React.Component {
             }
           </div>
         </div>
-      </>
+      </div>
     )
   }
 }

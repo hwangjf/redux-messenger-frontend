@@ -14,7 +14,7 @@ class Chatbox extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentConvo && (prevProps.currentConvo.id !== this.props.currentConvo.id) ) {
       // unmount and remount consumer 
-      this.setState({mountConsumer: false}, () =>this.setState({mountConsumer: true}))
+      this.setState({mountConsumer: false}, () => this.setState({mountConsumer: true}))
     }
   }
 

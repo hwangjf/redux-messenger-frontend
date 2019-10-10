@@ -44,7 +44,7 @@ class UsersAdapter extends ApiAdapter {
 
   addFriend = (userId) => {
     this.addAuthHeaders()
-    return this.post('/add_friend', {friend_id: userId})
+    return this.post(`/users/${userId}/friends`, {friend_id: userId})
   }
 }
 

@@ -7,12 +7,10 @@ import Contacts from '../contacts/Contacts';
 class ConversationContainer extends Component {
   
   render() {
-    console.log(this.props)
+    console.log('CONVERSATIONCONTAINER PROPS: ', this.props)
     return (
       <div>
         ConversationContainer
-
-        <br/>
         <Contacts />
         <ConversationList />
         <Chatbox />

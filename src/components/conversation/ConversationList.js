@@ -8,7 +8,7 @@ class ConversationList extends Component {
     return (
       <div>
         ConversationList
-        <br/>
+
         {this.props.conversations.all.map((conversation)=> (
           <div key={uuid()} onClick={()=>this.props.setCurrentConvo(conversation.id)}>
             {conversation.title}
