@@ -27,8 +27,8 @@ class Login extends React.Component {
     return (
       <div className="login">
         <form className="login__form" onSubmit={this.handleSubmit} >
-          <input className="login__form__input input" type="text" placeholder="Username" name="username" required value={this.state.username} onChange={this.handleChange} ></input>
-          <input className="login__form__input input" type={this.props.showPassword ? "text" : "password"} placeholder="Password" name="password" required value={this.state.password} onChange={this.handleChange} ></input>
+          <input className="login__form__input input" type="text" name="username" value={this.state.username} placeholder="Username" required onChange={this.handleChange}></input>
+          <input className="login__form__input input" type={this.props.showPassword ? "text" : "password"} name="password" value={this.state.password} placeholder="Password" required onChange={this.handleChange}></input>
           <img className="login__form__eye" src={this.props.showPassword ? "images/show.png" : "images/hide.png"} alt="Eye" onClick={()=>{this.props.handleClickPassword()}} />
           <button className="login__form__btn btn">LOGIN</button>
         </form>

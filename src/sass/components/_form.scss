@@ -2,10 +2,10 @@
   outline: none;
   border: none;
   border-radius: 2px;
-  border: 1px solid $color-primary;
+  border: 2px solid $color-primary;
   font-family: inherit;
   &:focus {
     border: none;
-    border: 1px solid $color-secondary;
+    border: 2px solid $color-secondary;
   }
 }

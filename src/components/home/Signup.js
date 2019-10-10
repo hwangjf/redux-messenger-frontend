@@ -14,59 +14,19 @@ class Signup extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-
     this.props.signup(this.state)
     this.setState(initialState)
-
     this.props.history.push('messages')
   }
-
-//   render() {
-//     return (
-//       <div className="signup">
-//         <form className="form signup__form" onSubmit={this.handleSubmit}>
-//           <div className="header signup__header">Signup</div>
-//           <input
-//             className="input signup__input username"
-//             type="text"
-//             placeholder="Enter your name"
-//             required
-//             value={this.state.username}
-//             name="username"
-//             onChange={this.handleChange}
-//           >
-//           </input>
-//           <img
-//             className="signup__image--aria-eye"
-//             src={
-//               this.props.showPassword
-//                 ? "images/aria-eye-show.png"
-//                 : "images/aria-eye-hide.png"
-//             }
-//             alt="aria-eye"
-//             onClick={() => { this.props.handleClickPassword() }}
-//           />
-//           <input
-//             className="input signup__input"
-//             type={this.props.showPassword ? "text" : "password" }
-//
-//             placeholder="Enter your password"
-//             required
-//             name="password"
-//             onChange={this.handleChange}
-//             value={this.state.password}
-//           />
-//           <button type="submit" className="btn btn__large">Signup</button>
-//         </form>
-//       </div>
-//     )
-//   }
-// }
 
   render() {
     return (
       <div className="signup">
-
+        <form className="signup__form">
+          <input className="signup__form__input input" type="text" name="username" value={this.state.username} placeholder="Enter your username" required onChange={this.handleChange}></input>
+          <input className="signup__form__input input" type={this.props.showPassword ? "text" : "password"} name="password" value={this.state.password} placeholder="Enter your password" required  onChange={this.handleChange}></input>
+          <button className="signup__form__btn btn">SIGNUP</button>
+        </form>
       </div>
     )
   }

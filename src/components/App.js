@@ -94,9 +94,9 @@ class App extends Component {
 //   }
 // }
 
-  render() {
-    return (
-      <>
+render() {
+  return (
+    <div>
       <div className="home">
         <Navbar
           handleClickLogin={this.handleClickLogin}
@@ -104,12 +104,6 @@ class App extends Component {
           handleClickPassword={this.handleClickPassword}
           showPassword={this.state.showPassword}
         />
-
-        <Route
-          path="/conversations"
-          component={Conversation}
-        />
-
         <div className="home__body">
           <div className="home__body__left">
             <Route
@@ -122,29 +116,32 @@ class App extends Component {
             <div>Start Chatting Today!</div>
           </div>
         </div>
-
-        <Route
-          path="/profile/:username"
-          render={routerProps => {
-            const userId = this.props.users.length > 0 ? this.props.users.find(user => user.username === routerProps.match.params.username).id : null
-            return (
-              <Profile
-                userId={userId}
-                user={this.props.user}
-                users={this.props.users}
-                // friend={this.props.user && this.props.user.friends.map(u => u.id).includes(user.id)}
-                {...routerProps}
-              />
-            )}}
-        />
-        <Route
-          path="/messages"
-          render={props => <Messages><Conversation /></Messages>}
-        />
-      </div>
-      </>
-    );
-  }
+      <Route
+        path="/profile/:username"
+        render={routerProps => {
+          const userId = this.props.users.length > 0 ? this.props.users.find(user => user.username === routerProps.match.params.username).id : null
+          return (
+            <Profile
+              userId={userId}
+              user={this.props.user}
+              users={this.props.users}
+              // friend={this.props.user && this.props.user.friends.map(u => u.id).includes(user.id)}
+              {...routerProps}
+            />
+          )}}
+      />
+      <Route
+        path="/messages"
+        render={props => <Messages><Conversation /></Messages>}
+      />
+      <Route
+        path="/conversations"
+        component={Conversation}
+      />
+    </div>
+  </div>
+  );
+}
 }
 
 const mapStateToProps = state => {
@@ -155,5 +152,5 @@ const mapStateToProps = state => {
     users: state.users
   }
 }
-
+export { App };
 export default withRouter(connect(mapStateToProps, { autoLogin, getUsers })(App))
