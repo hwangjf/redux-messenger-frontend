@@ -42,9 +42,20 @@ class UsersAdapter extends ApiAdapter {
     return this.get('/users')
   }
 
+  // TODO: MOVE TO FRIENDS ADAPTER
+  getFriends = () => {
+    this.addAuthHeaders()
+    return this.get('/friends')
+  }
+
   addFriend = (userId) => {
     this.addAuthHeaders()
-    return this.post(`/users/${userId}/friends`, {friend_id: userId})
+    return this.post(`/friends`, {friend_id: userId})
+  }
+
+  deleteFriend = (userId) => {
+    this.addAuthHeaders()
+    return this.delete(`/friends`, { friend_id: userId })
   }
 }
 

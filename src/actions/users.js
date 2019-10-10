@@ -58,6 +58,20 @@ export const logout = () => {
   }
 }
 
+export const addFriend = (friendId) => dispatch => {
+  UsersAdapter.addFriend(friendId)
+    .then(data => {
+
+      dispatch(addedFriend(data))
+    })
+}
+
+const addedFriend = (newFriend) => ({ 
+  type: userConstants.ADD_FRIEND, 
+  payload: newFriend 
+})
+
+
 // login success
 const loginSuccess = (data) => ({
   type: userConstants.LOGIN_SUCCESS,
