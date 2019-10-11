@@ -19,18 +19,12 @@ class UsersAdapter extends ApiAdapter {
     return this.post('/login', {
       user: userInfo
     })
-      .then(data => {
-        return data
-      })
   }
 
   autoLogin = () => {
     this.addAuthHeaders()
 
     return this.get('/auto_login')
-      .then(data => {
-        return data
-      })
   }
 
   logout = () => {
