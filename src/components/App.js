@@ -113,6 +113,7 @@ class App extends Component {
         <div className="home__body">
           <div className="home__body__left">
             <Route
+              path="/"
               render={routerProps => (
                 <Signup {...routerProps} />
               )}

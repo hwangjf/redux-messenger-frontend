@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { logout } from '../../actions/user'
+import { logout } from '../../actions/users'
 
 import { withRouter } from 'react-router'
 
