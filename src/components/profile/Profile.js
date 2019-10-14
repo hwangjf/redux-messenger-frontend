@@ -1,7 +1,7 @@
 import React from 'react'
 import withAuth from '../hocs/withAuth'
 import { connect } from 'react-redux'
-import { addFriend } from '../../actions/user'
+import { addFriend } from '../../actions/users'
 
 class Profile extends React.Component {
 
