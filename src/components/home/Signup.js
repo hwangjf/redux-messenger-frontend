@@ -22,6 +22,7 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="signup">
+        <div className="signup__header">Start Chatting Today!</div>
         <form className="signup__form">
           <input className="signup__form__input input" type="text" name="username" value={this.state.username} placeholder="Enter your username" required onChange={this.handleChange}></input>
           <input className="signup__form__input input" type={this.props.showPassword ? "text" : "password"} name="password" value={this.state.password} placeholder="Enter your password" required  onChange={this.handleChange}></input>

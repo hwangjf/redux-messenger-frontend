@@ -26,7 +26,7 @@ export const login = (userInfo) => dispatch => {
 }
 
 export const autoLogin = () => dispatch => {
-  dispatch(loginRequest) 
+  dispatch(loginRequest)
   return UsersAdapter.autoLogin()
     .then(data => {
       dispatch(loginSuccess(data))
@@ -45,7 +45,7 @@ export const signup = (userInfo) => dispatch => {
       dispatch(signupSuccess(data))
     })
     .catch(err => {
-      dispatch(signupFailure(err)) 
+      dispatch(signupFailure(err))
     })
 }
 
@@ -66,9 +66,9 @@ export const addFriend = (friendId) => dispatch => {
     })
 }
 
-const addedFriend = (newFriend) => ({ 
-  type: userConstants.ADD_FRIEND, 
-  payload: newFriend 
+const addedFriend = (newFriend) => ({
+  type: userConstants.ADD_FRIEND,
+  payload: newFriend
 })
 
 

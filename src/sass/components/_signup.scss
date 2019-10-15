@@ -1,11 +1,16 @@
 .signup {
-  border: 1px green solid;
+  &__header {
+    margin-top: 8rem;
+    font-size: 3rem;
+    text-align: center;
+    color: $color-secondary;
+  }
   &__form {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
     min-width: 20rem;
-    margin: 10rem auto 5rem auto;
+    margin: 3rem auto 5rem auto;
     padding: 4rem 3rem 3.5rem 3rem;
     background-color: $color-primary;
     border-radius: 4px;
@@ -17,14 +22,14 @@
     &__btn {
       margin: auto;
       background-color: $color-secondary;
-      border: 2px solid $color-secondary;
+      border: 1px solid $color-secondary;
       color: white;
       padding: .75rem 1.75rem;
       &:focus {
-        border: 2px white solid;
+        border: 1px white solid;
       }
       &:hover {
-        border: 2px solid white;
+        border: 1px solid white;
         cursor: pointer;
       }
     }
