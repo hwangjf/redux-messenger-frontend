@@ -18,6 +18,7 @@ export const login = (userInfo) => dispatch => {
   return UsersAdapter.login(userInfo)
     .then(data => {
       dispatch(loginSuccess(data))
+      return data
     })
     .catch(err => {
       err.json().then(arg => console.log(arg) )
@@ -40,8 +41,9 @@ export const autoLogin = () => dispatch => {
 export const signup = (userInfo) => dispatch => {
   dispatch(loginRequest)
 
-  UsersAdapter.signup(userInfo)
+  return UsersAdapter.signup(userInfo)
     .then(data => {
+      debugger
       dispatch(signupSuccess(data))
     })
     .catch(err => {
@@ -73,9 +75,9 @@ const addedFriend = (newFriend) => ({
 
 
 // login success
-const loginSuccess = (data) => ({
+const loginSuccess = ({user}) => ({
   type: userConstants.LOGIN_SUCCESS,
-  ...data
+  user
 })
 
 // beginning login async action
@@ -90,9 +92,9 @@ const loginFailure = err => ({
 })
 
 // signup success
-const signupSuccess = (userInfo) => ({
+const signupSuccess = ({user}) => ({
   type: userConstants.SIGNUP_SUCCESS,
-  payload: userInfo
+  user
 })
 
 // beginning signup async action

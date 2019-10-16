@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { login } from '../../actions/users'
+import { login, getUsers } from '../../actions/users'
 
 import { withRouter } from 'react-router'
 
@@ -15,7 +15,11 @@ class Login extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.login(this.state)
-      .then(()=>this.props.history.push('/conversations'))
+      .then(data => {
+        this.props.getUsers()
+
+        this.props.history.push('/conversations')
+      })
 
     this.setState({
       username: '',
@@ -41,4 +45,4 @@ const mapStateToProps = state => {
   return state
 }
 
-export default withRouter(connect(mapStateToProps, { login })(Login))
+export default withRouter(connect(mapStateToProps, { login, getUsers })(Login))

@@ -16,6 +16,7 @@ class Conversation extends Component {
 
   componentDidMount() {
     console.log('hi')
+
     this.props.getConversations()
   }
 
@@ -74,9 +75,9 @@ class Conversation extends Component {
             onChange={this.handleChange} 
             name="title"
           />
+          <button>New Conversation</button>
         </form>
 
-        <button onClick={this.getAllUsers}>New Conversation</button>
         
         <br />
         <ConversationContainer conversations={this.props.conversations} />

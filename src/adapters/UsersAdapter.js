@@ -10,9 +10,6 @@ class UsersAdapter extends ApiAdapter {
     return this.post('/signup', {
       user: userInfo
     })
-      .then(data => {
-        return data.user
-      })
   }
 
   login = (userInfo) => {
